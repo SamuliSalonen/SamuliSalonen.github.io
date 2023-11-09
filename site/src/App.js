@@ -194,6 +194,7 @@ function App() {
                     <li>ability to learn and pivot really fast</li>
                     
                     <li>ability to break a big problem into small chunks, and ask right questions</li>
+                    <li>ability to reverse engineer what code does, without reading comments</li>
                     <li>endless creativity</li>
                     <li>quick prototyping</li>
                     <li>growth mindset</li>
@@ -265,6 +266,7 @@ function App() {
                     
                     <li>Final IK (Inverse kinematics library for unity) </li>
                     <li>Digger (Voxel engine for unity) </li>
+                    <li>Unity shadergraph </li>
                     <li>Unity Job system basics </li>
                     <li>C#</li>
                
