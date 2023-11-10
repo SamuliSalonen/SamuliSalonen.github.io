@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.5ccacc7d.css",
-    "main.js": "/static/js/main.676c8dc1.js",
+    "main.js": "/static/js/main.13ea7d85.js",
     "static/js/787.6216e3e5.chunk.js": "/static/js/787.6216e3e5.chunk.js",
     "static/media/physicsbasedcombat.mp4": "/static/media/physicsbasedcombat.e1c3507123bc702f844a.mp4",
     "static/media/scr2_upscaled.png": "/static/media/scr2_upscaled.b23193f5b5413684fb06.png",
+    "static/media/gigachad punch dodge.png": "/static/media/gigachad punch dodge.50bbf24e3ef7f9c725c9.png",
     "static/media/bottleflip.mp4": "/static/media/bottleflip.ed7caefc6a656c63535d.mp4",
     "static/media/mages.png": "/static/media/mages.230e8cafea4bde02276b.png",
     "static/media/lava-level.png": "/static/media/lava-level.5e9b9a3598a40c9e3b38.png",
     "static/media/beam.png": "/static/media/beam.d9ca0e6b51ffdf5d792e.png",
     "static/media/gigachadhole.png": "/static/media/gigachadhole.81c1989c2056aec5294c.png",
     "static/media/1before-destruction.png": "/static/media/1before-destruction.5fb372cbb399c076880a.png",
-    "static/media/gigachad punch dodge.png": "/static/media/gigachad punch dodge.3c9ab3157298e20eb5cf.png",
     "static/media/3bpost-destruction3.png": "/static/media/3bpost-destruction3.06793e10f34a2e547176.png",
     "static/media/2bpost destruction2.png": "/static/media/2bpost destruction2.c24446650e5c07b1b00d.png",
     "static/media/harold hit.png": "/static/media/harold hit.be3dbb7a7b515dc35fc8.png",
@@ -27,11 +27,11 @@
     "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/index.html",
     "main.5ccacc7d.css.map": "/static/css/main.5ccacc7d.css.map",
-    "main.676c8dc1.js.map": "/static/js/main.676c8dc1.js.map",
+    "main.13ea7d85.js.map": "/static/js/main.13ea7d85.js.map",
     "787.6216e3e5.chunk.js.map": "/static/js/787.6216e3e5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5ccacc7d.css",
-    "static/js/main.676c8dc1.js"
+    "static/js/main.13ea7d85.js"
   ]
 }
