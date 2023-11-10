@@ -9,6 +9,7 @@ import ehgBackground from './Assets/scr2_upscaled.png';
 import twitterLogo from './Assets/Twitter_Logo_Blue.png';
 import twitchLogo from './Assets/Glitch_Purple_RGB.png';
 import ehgLogo from './Assets/ehglogo.png';
+import steamLogo from './Assets/Steam_icon_logo.svg.png';
 import maincapsule from './Assets/maincapsule (1).jpg';
 
 
@@ -136,6 +137,7 @@ function App() {
           <Social linkTo={"https://twitter.com/Ssaldev"} image={twitterLogo} />
           <Social linkTo={"https://www.youtube.com/@scuffedgamedev"} image={youtubeLogo} />
           <Social linkTo={"https://www.twitch.tv/clayman_dev"} image={twitchLogo} />
+          <Social linkTo={"https://store.steampowered.com/app/2081720/Epic_Hero_Game/"} image={steamLogo} />
         </div>
 
 

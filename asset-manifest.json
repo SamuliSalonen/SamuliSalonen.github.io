@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.5ccacc7d.css",
-    "main.js": "/static/js/main.13ea7d85.js",
+    "main.js": "/static/js/main.e0bbd39d.js",
     "static/js/787.6216e3e5.chunk.js": "/static/js/787.6216e3e5.chunk.js",
     "static/media/physicsbasedcombat.mp4": "/static/media/physicsbasedcombat.e1c3507123bc702f844a.mp4",
     "static/media/scr2_upscaled.png": "/static/media/scr2_upscaled.b23193f5b5413684fb06.png",
@@ -22,16 +22,17 @@
     "static/media/ehglogo.png": "/static/media/ehglogo.ab57f30f322fba25f822.png",
     "static/media/SigmarOne-Regular.ttf": "/static/media/SigmarOne-Regular.bf407e18172292d7fe78.ttf",
     "static/media/ehg-code-diagram.png": "/static/media/ehg-code-diagram.67eac8f4e5fd57587ad0.png",
+    "static/media/Steam_icon_logo.svg.png": "/static/media/Steam_icon_logo.svg.e964a3ae1417cac23a8d.png",
     "static/media/emoji.png": "/static/media/emoji.3515173a555ba2b105c9.png",
     "static/media/youtube.png": "/static/media/youtube.964a324d3748ea2f99a1.png",
     "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/index.html",
     "main.5ccacc7d.css.map": "/static/css/main.5ccacc7d.css.map",
-    "main.13ea7d85.js.map": "/static/js/main.13ea7d85.js.map",
+    "main.e0bbd39d.js.map": "/static/js/main.e0bbd39d.js.map",
     "787.6216e3e5.chunk.js.map": "/static/js/787.6216e3e5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5ccacc7d.css",
-    "static/js/main.13ea7d85.js"
+    "static/js/main.e0bbd39d.js"
   ]
 }
