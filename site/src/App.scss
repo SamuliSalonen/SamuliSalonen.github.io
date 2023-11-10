@@ -107,6 +107,12 @@
   justify-content: left !important;
 }
 
+@media (max-width: 1000px) {
+  .flexbox-content {
+    display: block;
+  }
+}
+
 .center-div {
   justify-content: center;
 }
