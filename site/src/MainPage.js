@@ -33,7 +33,7 @@ function MainPage() {
                             <p>Technical explanations of programming concepts</p>
 
                             <ul>
-                                <a href="/article/polymorphism"><li className='list-paragraph2'>Polymorphism</li></a>
+                                <a href="#/article/polymorphism"><li className='list-paragraph2'>Polymorphism</li></a>
                                 <li className='list-paragraph2'>Eventbus</li>
                             </ul>
                         </div>

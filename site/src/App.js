@@ -12,7 +12,7 @@ import ehgLogo from './Assets/ehglogo.png';
 import steamLogo from './Assets/Steam_icon_logo.svg.png';
 import maincapsule from './Assets/maincapsule (1).jpg';
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import Social from './components/social/Social.js';
 import Game from './components/game/game.js';
 import images from "./images.js";
@@ -110,12 +110,12 @@ function App() {
         }
         )
 
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route index element={<MainPage />} />
-            <Route path="article/polymorphism" element={<Article title={"polymorphism"} info={<PolymorphismArticle></PolymorphismArticle>}></Article>} />
+            <Route path="/article/polymorphism" element={<Article title={"polymorphism"} info={<PolymorphismArticle></PolymorphismArticle>}></Article>} />
           </Routes>
-        </BrowserRouter>
+          </HashRouter>
 
       </div >
 
