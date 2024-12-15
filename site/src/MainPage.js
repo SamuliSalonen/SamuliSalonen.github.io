@@ -34,7 +34,11 @@ function MainPage() {
 
                             <ul>
                                 <a href="#/article/polymorphism"><li className='list-paragraph2'>Polymorphism</li></a>
-                                <li className='list-paragraph2'>Eventbus</li>
+                                <a href="#/article/eventbus"><li className='list-paragraph2'>Eventbus</li></a>
+                                <a href="#/article/statemachine"><li className='list-paragraph2'>Statemachine</li></a>
+                                <a href="#/article/simpleprocanim"><li className='list-paragraph2'>Simple procedural animation</li></a>
+                                <a href="#/article/inputbuffer"><li className='list-paragraph2'>Input buffering</li></a>
+                                <a href="#/article/shaders"><li className='list-paragraph2'>Shaders</li></a>
                             </ul>
                         </div>
                     </div>

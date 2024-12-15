@@ -99,6 +99,22 @@
 .flexbox {
   display: flex;
 }
+.back-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.back-btn-container{
+  margin: 1%;
+}
 
 .flexbox-content {
   //border: solid red;
@@ -252,7 +268,7 @@
 
   font-family: 'CustomFont2', sans-serif; // !important;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.7);
   padding: 15px;
   //  min-width: 50%;
   width: 50%;

@@ -19,14 +19,19 @@ import images from "./images.js";
 import MainPage from './MainPage';
 import Article from './Article';
 import PolymorphismArticle from './PolymorphismArticle';
+import EventbusArticle from './EventbusArticle';
+import SimpleProcAnimArticle from './SimpleProcAnim';
+import StateMachineArticle from './StateMachineArticle';
+import ShaderArticle from './ShaderArticle';
+import InputBufferingArticle from './InputBufferingArticle';
 import Intro from "./Intro.js";
 import { CopyBlock, CodeBlock, dracula } from 'react-code-blocks';
 import { contentChunk, contentChunkWithVideo, simpleListItem, simpleListItemP, renderArray, contentChunkWithImages } from "./Util.js";
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import './App.scss';
-
-
+import { useNavigate } from "react-router-dom";
+import Header from "./Header";
 
 function App() {
 
@@ -71,51 +76,25 @@ function App() {
       {
         //     <img src={ehgBackground}></img>
       }
-      <header className="App-header">
-        <div class={bgName}></div>
-        <div className="flexbox-root socials-root">
-          <img className="ehg-face" src={ehgFace}></img>
-          <Social linkTo={"https://twitter.com/Ssaldev"} image={twitterLogo} />
-          <Social linkTo={"https://www.youtube.com/@scuffedgamedev"} image={youtubeLogo} />
-          <Social linkTo={"https://www.twitch.tv/clayman_dev"} image={twitchLogo} />
-          <Social linkTo={"https://store.steampowered.com/app/2081720/Epic_Hero_Game/"} image={steamLogo} />
-        </div>
-
-
-
-
-
-
-
-      </header>
+      <Header></Header>
       <div className='primary-content'>
 
 
 
-        {
-          /*
-          contentChunk("Articles",
-            <div className='content-wrapper center-div flexbox-wrapper'>
-              <div className='pre-tag flexbox-content'>
-                <div class="code-wrapper">
-
-                  <SyntaxHighlighter language="c#" style={docco}>
-                    {codeString}
-                  </SyntaxHighlighter>
-                </div>
-              </div>
-            </div>
-          )
-          */
-        }
-        )
+    
+        
 
         <HashRouter>
           <Routes>
             <Route index element={<MainPage />} />
             <Route path="/article/polymorphism" element={<Article title={"polymorphism"} info={<PolymorphismArticle></PolymorphismArticle>}></Article>} />
+            <Route path="/article/eventbus" element={<Article title={"eventbus"} info={<EventbusArticle />}></Article>} />
+            <Route path="/article/simpleprocanim" element={<Article title={"simple procedural animation"} info={<SimpleProcAnimArticle />}></Article>} />
+            <Route path="/article/statemachine" element={<Article title={"statemachine"} info={<StateMachineArticle />}></Article>} />
+            <Route path="/article/inputbuffer" element={<Article title={"input buffering"} info={<InputBufferingArticle />}></Article>} />
+            <Route path="/article/shaders" element={<Article title={"Shaders"} info={<ShaderArticle />}></Article>} />
           </Routes>
-          </HashRouter>
+        </HashRouter>
 
       </div >
 

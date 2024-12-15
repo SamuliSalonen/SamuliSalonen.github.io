@@ -12,12 +12,14 @@ import ehgLogo from './Assets/ehglogo.png';
 import steamLogo from './Assets/Steam_icon_logo.svg.png';
 import maincapsule from './Assets/maincapsule (1).jpg';
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import Social from './components/social/Social.js';
 import Game from './components/game/game.js';
 import images from "./images.js";
 import MainPage from './MainPage';
-
+import Article from './Article';
+import PolymorphismArticle from './PolymorphismArticle';
+import EventbusArticle from './EventbusArticle';
 import Intro from "./Intro.js";
 import { CopyBlock, CodeBlock, dracula } from 'react-code-blocks';
 import { contentChunk, contentChunkWithVideo, simpleListItem, simpleListItemP, renderArray, contentChunkWithImages } from "./Util.js";
@@ -26,40 +28,34 @@ import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import './App.scss';
 import { useNavigate } from "react-router-dom";
 
-/*
-<div class="code-wrapper">
 
-<SyntaxHighlighter language="c#" style={docco}>
-    {codeString}
-</SyntaxHighlighter>
-</div>*/
-const codeString = 'public virtual void Test() {}';
-function Article(props) {
-    let navigate = useNavigate();
-    return (<div>
-        {
+function Header() {
 
-        }
-        {
 
-            contentChunk(props.title,
-                <div className='content-wrapper center-div flexbox-wrapper'>
-                    <div className='back-btn-container'>
-                        <button className='back-button' onClick={() => navigate(-1)}><p>Back</p></button>
-                    </div>
-                    <div className='pre-tag flexbox-content'>
-                        {/*               <div className='back-btn-container'>
-                            <button className='back-button' onClick={() => navigate(-1)}><p>Back</p></button>
-                        </div>
-            */}
-                        {props.info}
-                    </div>
-                </div>
-            )
+    const [bgName, setBgName] = useState("background");
 
-        }
-    </div>
-    )
+    return (
+
+
+        <header className="App-header">
+            <div class={bgName}></div>
+            <div className="flexbox-root socials-root">
+                <img className="ehg-face" src={ehgFace}></img>
+                <Social linkTo={"https://twitter.com/Ssaldev"} image={twitterLogo} />
+                <Social linkTo={"https://www.youtube.com/@scuffedgamedev"} image={youtubeLogo} />
+                <Social linkTo={"https://www.twitch.tv/clayman_dev"} image={twitchLogo} />
+                <Social linkTo={"https://store.steampowered.com/app/2081720/Epic_Hero_Game/"} image={steamLogo} />
+            </div>
+
+
+
+
+
+
+
+        </header>
+
+    );
 }
 
-export default Article
+export default Header;
