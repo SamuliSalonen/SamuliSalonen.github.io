@@ -79,8 +79,17 @@
 
 .social {
   margin-left: 10px;
+  width:100%;
 }
-
+.tech-icons {
+  justify-content: center;
+}
+.tech-icon {
+  margin: 2%;
+}
+a {
+  color: white;
+}
 .socials-root {
   padding-top: 10px;
   z-index: 1000;
@@ -262,7 +271,22 @@
 
   }
 }
+.nav-btn:hover {
+  color: red;
+  cursor: pointer;
+}
+.nav-btn {
+  margin: 5px;
+}
+.social-wrapper {
+  display: flex; /* Use flexbox layout */
+  align-items: center; /* Align items vertically in the center */
+  justify-content: space-between; /* Optional: adjust spacing between items */
 
+}
+.award {
+  width:500px !important;
+}
 .pre-tag {
 
 
@@ -286,7 +310,7 @@
 .pre-tag-full {
   font-family: 'CustomFont2', sans-serif; // !important;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.7);
   padding: 15px;
   //  min-width: 50%;
   width: 100%;

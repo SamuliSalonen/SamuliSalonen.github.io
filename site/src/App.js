@@ -11,20 +11,25 @@ import twitchLogo from './Assets/Glitch_Purple_RGB.png';
 import ehgLogo from './Assets/ehglogo.png';
 import steamLogo from './Assets/Steam_icon_logo.svg.png';
 import maincapsule from './Assets/maincapsule (1).jpg';
-
+import { connect } from 'react-redux'
 import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import Social from './components/social/Social.js';
 import Game from './components/game/game.js';
 import images from "./images.js";
-import MainPage from './MainPage';
-import Article from './Article';
-import PolymorphismArticle from './PolymorphismArticle';
-import EventbusArticle from './EventbusArticle';
-import SimpleProcAnimArticle from './SimpleProcAnim';
-import StateMachineArticle from './StateMachineArticle';
-import ShaderArticle from './ShaderArticle';
-import InputBufferingArticle from './InputBufferingArticle';
-import Intro from "./Intro.js";
+import MainPage from './pages/MainPage';
+import Intro from './pages/Intro';
+import Article from './pages/Article';
+import Portfolio from './pages/portfolio';
+import PolymorphismArticle from './pages/PolymorphismArticle';
+import EventbusArticle from './pages/EventbusArticle';
+import SimpleProcAnimArticle from './pages/SimpleProcAnim';
+import StateMachineArticle from './pages/StateMachineArticle';
+import ShaderArticle from './pages/ShaderArticle';
+import InputBufferingArticle from './pages/InputBufferingArticle';
+import Articles from './pages/Articles';
+
+import Skills from './pages/skills';
+
 import { CopyBlock, CodeBlock, dracula } from 'react-code-blocks';
 import { contentChunk, contentChunkWithVideo, simpleListItem, simpleListItemP, renderArray, contentChunkWithImages } from "./Util.js";
 import SyntaxHighlighter from 'react-syntax-highlighter';
@@ -76,17 +81,21 @@ function App() {
       {
         //     <img src={ehgBackground}></img>
       }
-      <Header></Header>
+      <Header ></Header>
       <div className='primary-content'>
 
 
 
-    
-        
+
+
 
         <HashRouter>
           <Routes>
-            <Route index element={<MainPage />} />
+            <Route index element={<Intro />} />
+            <Route path="/about" element={<Intro />} ></Route>
+            <Route path="/skills" element={<Skills />} ></Route>
+            <Route path="/portfolio" element={<Portfolio />} ></Route>
+            <Route path="/article" element={<Articles></Articles>} ></Route>
             <Route path="/article/polymorphism" element={<Article title={"polymorphism"} info={<PolymorphismArticle></PolymorphismArticle>}></Article>} />
             <Route path="/article/eventbus" element={<Article title={"eventbus"} info={<EventbusArticle />}></Article>} />
             <Route path="/article/simpleprocanim" element={<Article title={"simple procedural animation"} info={<SimpleProcAnimArticle />}></Article>} />

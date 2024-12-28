@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.9ac99c32.css",
-    "main.js": "/static/js/main.80343683.js",
+    "main.css": "/static/css/main.d1f7fdc4.css",
+    "main.js": "/static/js/main.4b7e4859.js",
     "react-syntax-highlighter/refractor-core-import.js": "/static/js/react-syntax-highlighter/refractor-core-import.1785401d.chunk.js",
     "react-syntax-highlighter_languages_refractor_abap.js": "/static/js/react-syntax-highlighter_languages_refractor_abap.a3781ed3.chunk.js",
     "react-syntax-highlighter_languages_refractor_abnf.js": "/static/js/react-syntax-highlighter_languages_refractor_abnf.3ed58412.chunk.js",
@@ -282,7 +282,9 @@
     "react-syntax-highlighter_languages_refractor_zig.js": "/static/js/react-syntax-highlighter_languages_refractor_zig.14274a8a.chunk.js",
     "static/js/787.6216e3e5.chunk.js": "/static/js/787.6216e3e5.chunk.js",
     "static/media/physicsbasedcombat.mp4": "/static/media/physicsbasedcombat.e1c3507123bc702f844a.mp4",
+    "static/media/golemz.mp4": "/static/media/golemz.3a3201bdbcf6e1bae630.mp4",
     "static/media/scr2_upscaled.png": "/static/media/scr2_upscaled.b23193f5b5413684fb06.png",
+    "static/media/onscreen.mp4": "/static/media/onscreen.bf138574fd0f196aadc4.mp4",
     "static/media/gigachad punch dodge.png": "/static/media/gigachad punch dodge.50bbf24e3ef7f9c725c9.png",
     "static/media/bottleflip.mp4": "/static/media/bottleflip.ed7caefc6a656c63535d.mp4",
     "static/media/mages.png": "/static/media/mages.230e8cafea4bde02276b.png",
@@ -299,14 +301,27 @@
     "static/media/maincapsule (1).jpg": "/static/media/maincapsule (1).a03af83477ce6b5aa0c7.jpg",
     "static/media/ehglogo.png": "/static/media/ehglogo.ab57f30f322fba25f822.png",
     "static/media/SigmarOne-Regular.ttf": "/static/media/SigmarOne-Regular.bf407e18172292d7fe78.ttf",
+    "static/media/jernjam6.png": "/static/media/jernjam6.01f594f36eeaca46df66.png",
     "static/media/ehg-code-diagram.png": "/static/media/ehg-code-diagram.67eac8f4e5fd57587ad0.png",
     "static/media/Steam_icon_logo.svg.png": "/static/media/Steam_icon_logo.svg.e964a3ae1417cac23a8d.png",
     "static/media/emoji.png": "/static/media/emoji.3515173a555ba2b105c9.png",
     "static/media/youtube.png": "/static/media/youtube.964a324d3748ea2f99a1.png",
+    "static/media/react.svg": "/static/media/react.eb0924374c208f1b42b915fdae156bb9.svg",
+    "static/media/godot.svg": "/static/media/godot.4b3c42f205b2650cfa036ca281e646cd.svg",
+    "static/media/redux.svg": "/static/media/redux.4591c58f19dab0f56bfdb1e77cf9f910.svg",
+    "static/media/sql.svg": "/static/media/sql.bb25792986febd11f2600c882014e5b3.svg",
+    "static/media/blender.svg": "/static/media/blender.d3c9f8f39c3d64c79343aa87e45abb28.svg",
     "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/js.svg": "/static/media/js.1fbb768737f148e05a696712d069aedb.svg",
+    "static/media/unreal.svg": "/static/media/unreal.e85fc7bef1ed14346d7b6f04b5d9ba52.svg",
+    "static/media/unity.svg": "/static/media/unity.f629252b693347eb899dcf0d4746b60e.svg",
+    "static/media/csharp.svg": "/static/media/csharp.95bbb70c4909219c1367cfd83a713efd.svg",
+    "static/media/css3.svg": "/static/media/css3.756a893e2ade29b913dcfa0e1ba77247.svg",
+    "static/media/angular.svg": "/static/media/angular.e1339c1624313f9b7b0eecccc03b1a72.svg",
     "index.html": "/index.html",
-    "main.9ac99c32.css.map": "/static/css/main.9ac99c32.css.map",
-    "main.80343683.js.map": "/static/js/main.80343683.js.map",
+    "static/media/uiReducer": "/static/media/uiReducer.ece10b7ed0c2a508011b",
+    "main.d1f7fdc4.css.map": "/static/css/main.d1f7fdc4.css.map",
+    "main.4b7e4859.js.map": "/static/js/main.4b7e4859.js.map",
     "refractor-core-import.1785401d.chunk.js.map": "/static/js/react-syntax-highlighter/refractor-core-import.1785401d.chunk.js.map",
     "react-syntax-highlighter_languages_refractor_abap.a3781ed3.chunk.js.map": "/static/js/react-syntax-highlighter_languages_refractor_abap.a3781ed3.chunk.js.map",
     "react-syntax-highlighter_languages_refractor_abnf.3ed58412.chunk.js.map": "/static/js/react-syntax-highlighter_languages_refractor_abnf.3ed58412.chunk.js.map",
@@ -588,7 +603,7 @@
     "787.6216e3e5.chunk.js.map": "/static/js/787.6216e3e5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9ac99c32.css",
-    "static/js/main.80343683.js"
+    "static/css/main.d1f7fdc4.css",
+    "static/js/main.4b7e4859.js"
   ]
 }
