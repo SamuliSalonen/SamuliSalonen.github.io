@@ -118,7 +118,7 @@ function Intro() {
                         <hr></hr>
                         <p className='list-paragraph2'>
                             This website is built using React.js, and hosted through github pages,
-                            the source code is available <a href="https://github.com/SamuliSalonen/SamuliSalonen.github.io">Here</a>
+                            the source code is available <a href="https://github.com/SamuliSalonen/SamuliSalonen.github.io/blob/master/site/src/App.js">Here</a>
                         </p>
                     </div>
 

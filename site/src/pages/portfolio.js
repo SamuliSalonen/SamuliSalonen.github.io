@@ -100,6 +100,7 @@ function Portfolio(props) {
                                     <li>vast selection of weapons</li>
                                     <li>Built in 2 weeks for a gamejam</li>
                                     <li>Teamlead of 4</li>
+                                    <li>(clip is the gamejam host playing the game with us)</li>
 
                                     <li>Won #1 overrall jern's choice award</li>
                                     <a href='https://samuli-salonen.itch.io/golemz'><li>Build</li></a>

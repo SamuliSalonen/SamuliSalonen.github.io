@@ -10,8 +10,29 @@ import './App.scss';
 
 function Header() {
 
-
+    const [scrollY, setScrollY] = useState(0);
     const [bgName, setBgName] = useState("background");
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollY(window.scrollY);
+            let backgroundClassName = "background no-blur";
+            if (window.scrollY > 100) {
+                backgroundClassName = "background blur";
+            }
+            if (window.scrollY > 200) {
+                backgroundClassName = "background blur-hard";
+            }
+
+
+            setBgName(backgroundClassName);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return (
 
