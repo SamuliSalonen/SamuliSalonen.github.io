@@ -22,9 +22,11 @@ function Article(props) {
 
             contentChunk(props.title,
                 <div className='content-wrapper center-div flexbox-wrapper'>
+         {/*
                     <div className='back-btn-container'>
                         <a href="/#/article"><p>Back</p></a>
                     </div>
+            */}
                     <div className='pre-tag flexbox-content'>
                         {/*               <div className='back-btn-container'>
                             <button className='back-button' onClick={() => navigate(-1)}><p>Back</p></button>

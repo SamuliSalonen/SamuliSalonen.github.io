@@ -39,7 +39,7 @@ function Intro() {
                     </div>
                     <div className='content-wrapper center-div flexbox-wrapper'>
 
-                        <div className='pre-tag flexbox-content'>
+                        <div className='pre-tag flexbox-content reset-font'>
                             <img style={{
                                 width: "200px"
 
