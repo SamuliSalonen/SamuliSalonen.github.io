@@ -14,7 +14,7 @@ function Skills(props) {
                 contentChunk("List of skills",
                     <div>
                         <div className='content-wrapper center-div flexbox-wrapper'>
-                            <div className='pre-tag flexbox-content'>
+                            <div className='pre-tag flexbox-content small-padding-tag'>
 
                                 <p  className='list-paragraph2'>C# and unity is where my strongest tech knowledge is,<br></br> but my biggest strength is being able to use my existing knowledge  into learning new things
                                 </p>

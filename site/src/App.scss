@@ -239,14 +239,13 @@ a {
     width: 100%;
     // border: solid red;
   }
-
+  
   .pre-tag {
     img {
       margin-bottom: 2%;
 
     }
   }
-
   .pre-tag-img {
     display: block;
     // width: 100% !important;
@@ -284,6 +283,10 @@ a {
     width: 90% !important;
   }
 
+  .small-padding-tag {
+    padding:0.5% !important; //!important;
+    width: 99% !important; //!important;
+  }
   .content-wrapper {}
 
 
@@ -364,7 +367,10 @@ a {
   }
 }
 
-
+.small-padding-tag {
+  padding:0.5%; //!important;
+  width: 69%; //!important;
+}
 
 html {
   // font-size: calc(1vw + 1vh + 0.5vmin); /* Scales based on viewport size */

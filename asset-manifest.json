@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.41f6c31b.css",
-    "main.js": "/static/js/main.b9343ca1.js",
+    "main.css": "/static/css/main.376eda94.css",
+    "main.js": "/static/js/main.5c156447.js",
     "static/js/787.6216e3e5.chunk.js": "/static/js/787.6216e3e5.chunk.js",
     "static/media/physicsbasedcombat.mp4": "/static/media/physicsbasedcombat.e1c3507123bc702f844a.mp4",
     "static/media/golemz.mp4": "/static/media/golemz.3a3201bdbcf6e1bae630.mp4",
@@ -28,12 +28,12 @@
     "static/media/angular.svg": "/static/media/angular.e1339c1624313f9b7b0eecccc03b1a72.svg",
     "index.html": "/index.html",
     "static/media/uiReducer": "/static/media/uiReducer.ece10b7ed0c2a508011b",
-    "main.41f6c31b.css.map": "/static/css/main.41f6c31b.css.map",
-    "main.b9343ca1.js.map": "/static/js/main.b9343ca1.js.map",
+    "main.376eda94.css.map": "/static/css/main.376eda94.css.map",
+    "main.5c156447.js.map": "/static/js/main.5c156447.js.map",
     "787.6216e3e5.chunk.js.map": "/static/js/787.6216e3e5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.41f6c31b.css",
-    "static/js/main.b9343ca1.js"
+    "static/css/main.376eda94.css",
+    "static/js/main.5c156447.js"
   ]
 }

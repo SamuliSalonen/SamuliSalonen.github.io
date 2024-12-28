@@ -26,7 +26,7 @@ function Intro() {
             contentChunk("Samuli Salonen",
                 <div>
                     <div className='content-wrapper center-div flexbox-wrapper'>
-                        <div className='pre-tag'>
+                        <div className='pre-tag small-padding-tag'>
 
                             <div className='social-wrapper'>
                                 <Social name="twitter" linkTo={"https://twitter.com/Ssaldev"} image={twitterLogo} />
