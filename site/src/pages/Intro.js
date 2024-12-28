@@ -53,6 +53,7 @@ function Intro() {
                                     "margin-top": "-10px",
 
                                 }}>
+                                    <li>salonen.samuli1@gmail.com</li>
                                     <li>27</li>
                                     <li>Software developer (c#, js)</li>
                                     <li>Livestreamer</li>
@@ -120,6 +121,11 @@ function Intro() {
                             This website is built using React.js, and hosted through github pages,
                             the source code is available <a href="https://github.com/SamuliSalonen/SamuliSalonen.github.io/blob/master/site/src/App.js">Here</a>
                         </p>
+                        Contact
+                        <p className='list-paragraph2'>
+                            Best way to contact me is through email here: salonen.samuli1@gmail.com
+                        </p>
+
                     </div>
 
                 </div>
