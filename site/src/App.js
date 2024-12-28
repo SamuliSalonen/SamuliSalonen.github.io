@@ -25,9 +25,10 @@ function App() {
 
     <div className="App">
 
-      <Header ></Header>
+
       <div className='primary-content'>
         <HashRouter>
+          <Header ></Header>
           <Routes>
             <Route index element={<Intro />} />
             <Route path="/about" element={<Intro />} ></Route>
