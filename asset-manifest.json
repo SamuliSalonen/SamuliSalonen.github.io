@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.6b80b7c5.css",
-    "main.js": "/static/js/main.bed93c4a.js",
+    "main.css": "/static/css/main.59f1b6b3.css",
+    "main.js": "/static/js/main.40afdd67.js",
     "static/js/787.6216e3e5.chunk.js": "/static/js/787.6216e3e5.chunk.js",
     "static/media/physicsbasedcombat.mp4": "/static/media/physicsbasedcombat.e1c3507123bc702f844a.mp4",
     "static/media/golemz.mp4": "/static/media/golemz.3a3201bdbcf6e1bae630.mp4",
@@ -12,6 +12,7 @@
     "static/media/Drawzlegameplay.mp4": "/static/media/Drawzlegameplay.63022dec618c9301b764.mp4",
     "static/media/SigmarOne-Regular.ttf": "/static/media/SigmarOne-Regular.bf407e18172292d7fe78.ttf",
     "static/media/jernjam6.png": "/static/media/jernjam6.01f594f36eeaca46df66.png",
+    "static/media/ehg3.png": "/static/media/ehg3.fd8b2cd5a8d2b4922993.png",
     "static/media/Steam_icon_logo.svg.png": "/static/media/Steam_icon_logo.svg.e964a3ae1417cac23a8d.png",
     "static/media/emoji.png": "/static/media/emoji.3515173a555ba2b105c9.png",
     "static/media/youtube.png": "/static/media/youtube.964a324d3748ea2f99a1.png",
@@ -28,12 +29,12 @@
     "static/media/angular.svg": "/static/media/angular.e1339c1624313f9b7b0eecccc03b1a72.svg",
     "index.html": "/index.html",
     "static/media/uiReducer": "/static/media/uiReducer.ece10b7ed0c2a508011b",
-    "main.6b80b7c5.css.map": "/static/css/main.6b80b7c5.css.map",
-    "main.bed93c4a.js.map": "/static/js/main.bed93c4a.js.map",
+    "main.59f1b6b3.css.map": "/static/css/main.59f1b6b3.css.map",
+    "main.40afdd67.js.map": "/static/js/main.40afdd67.js.map",
     "787.6216e3e5.chunk.js.map": "/static/js/787.6216e3e5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6b80b7c5.css",
-    "static/js/main.bed93c4a.js"
+    "static/css/main.59f1b6b3.css",
+    "static/js/main.40afdd67.js"
   ]
 }
