@@ -50,7 +50,7 @@ function Header() {
             {
                 //        location.pathname
             }
-            <div class={bgName}></div>
+            <div className={bgName}></div>
             <div className="flexbox-root socials-root">
                 <a href='/#/' ><img className="ehg-face" src={ehgFace}></img></a>
                 <a href="#/about" className={getLinkClass("about")}><div className='nav-btn'>About</div></a>

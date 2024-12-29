@@ -239,13 +239,14 @@ a {
     width: 100%;
     // border: solid red;
   }
-  
+
   .pre-tag {
     img {
       margin-bottom: 2%;
 
     }
   }
+
   .pre-tag-img {
     display: block;
     // width: 100% !important;
@@ -258,9 +259,17 @@ a {
     }
   }
 }
-.current-link {
-  color:purple;
+
+.code-architecture-diagram {
+  width: 100% !important;
+
+
 }
+
+.current-link {
+  color: purple;
+}
+
 @media (max-width: 1200px) {
 
 
@@ -286,9 +295,10 @@ a {
   }
 
   .small-padding-tag {
-    padding:0.5% !important; //!important;
+    padding: 0.5% !important; //!important;
     width: 99% !important; //!important;
   }
+
   .content-wrapper {}
 
 
@@ -359,7 +369,7 @@ a {
   ;
   text-align: left;
   //-webkit-text-stroke: 1px black; //!important;
-  
+
 
   ul {}
 
@@ -370,7 +380,7 @@ a {
 }
 
 .small-padding-tag {
-  padding:0.5%; //!important;
+  padding: 0.5%; //!important;
   width: 69%; //!important;
 }
 

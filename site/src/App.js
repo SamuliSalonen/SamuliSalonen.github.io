@@ -8,6 +8,7 @@ import EventbusArticle from './pages/EventbusArticle';
 import SimpleProcAnimArticle from './pages/SimpleProcAnim';
 import StateMachineArticle from './pages/StateMachineArticle';
 import ShaderArticle from './pages/ShaderArticle';
+import CustomAnimationArticle from './pages/CustomAnimationArticle';
 import InputBufferingArticle from './pages/InputBufferingArticle';
 import Articles from './pages/Articles';
 
@@ -35,6 +36,7 @@ function App() {
             <Route path="/skills" element={<Skills />} ></Route>
             <Route path="/portfolio" element={<Portfolio />} ></Route>
             <Route path="/article" element={<Articles></Articles>} ></Route>
+            <Route path="/article/ehg" element={<Article title={"Epic Hero Game"} info={<CustomAnimationArticle />}></Article>} />
             <Route path="/article/polymorphism" element={<Article title={"polymorphism"} info={<PolymorphismArticle></PolymorphismArticle>}></Article>} />
             <Route path="/article/eventbus" element={<Article title={"eventbus"} info={<EventbusArticle />}></Article>} />
             <Route path="/article/simpleprocanim" element={<Article title={"simple procedural animation"} info={<SimpleProcAnimArticle />}></Article>} />

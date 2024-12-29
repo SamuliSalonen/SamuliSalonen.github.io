@@ -13,7 +13,13 @@ import { contentChunk, contentChunkWithVideo, simpleListItem, simpleListItemP, r
 </div>*/
 const codeString = 'public virtual void Test() {}';
 function Article(props) {
-
+    const content = () => {
+        try {
+            return props.info
+        } catch (ex) {
+            return <div>{ex.message}</div>
+        }
+    }
     return (<div>
         {
 
@@ -22,7 +28,7 @@ function Article(props) {
 
             contentChunk(props.title,
                 <div className='content-wrapper center-div flexbox-wrapper'>
-         {/*
+                    {/*
                     <div className='back-btn-container'>
                         <a href="/#/article"><p>Back</p></a>
                     </div>
@@ -32,7 +38,12 @@ function Article(props) {
                             <button className='back-button' onClick={() => navigate(-1)}><p>Back</p></button>
                         </div>
             */}
-                        {props.info}
+                        {
+
+                            content()
+
+                        }
+
                     </div>
                 </div>
             )
