@@ -330,6 +330,10 @@ a {
   cursor: pointer;
 }
 
+.App {
+  color: #e8e6e3;
+}
+
 .nav-btn {
   margin: 5px;
 }
@@ -391,7 +395,7 @@ html {
 .content-chunk {
   max-width: 100%;
   width: 100%;
-
+margin-top: 5%;
   justify-content: center;
   text-align: center;
 
@@ -559,19 +563,45 @@ video {
   transition: 2.2s ease-in-out;
 }
 
+.absolute-box {
+  font-family: monospace;
+  position: absolute;
+  top: 10px;
+  /* adjust as needed */
+  left: 10px;
+  /* adjust as needed */
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* optional for better readability */
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.absolute-box-2 {
+  font-family: monospace;
+  position: absolute;
+  bottom: 0px;
+  /* adjust as needed */
+  right: 10px;
+ 
+  /* adjust as needed */
+  justify-content: right;
+  width: 100%;
+  text-align: right; /* aligns text to the right */
+}
+
 .background {
   // transition: background-position-y 0.2s ease;
   z-index: -1;
   // background-image: url("./Assets/scr2_upscaled.png");
-  background-image: url("./Assets/punched.png");
-
+  //background-image: url("./Assets/punched.png");
+  background-color: rgb(24, 26, 27);
   background-size: cover;
-  /* Scale the background image to cover the entire div */
+
   background-position: center;
-  /* Center the background image */
+
   background-repeat: no-repeat;
-  /* Prevent the background image from repeating */
-  //filter: blur(3px);
+
   position: fixed;
   top: 0;
 

@@ -1,0 +1,93 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  /* Parent container's width */
+  height: 100%;
+  /* Parent container's height */
+
+}
+
+.cell {
+  flex: 1 0 33.33%;
+  /* Each cell takes 1/3 of the available space in each row */
+
+  /* Each cell takes 1/3 of the available height in each column */
+  border: 1px solid #ccc;
+  background-color: lightgray;
+  display: inline-block;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  video {
+    max-height: 250px;
+    width: 100%;
+    /* Ensure the video takes up the full width of the cell */
+    height: 100%;
+    /* Ensure the video takes up the full height of the cell */
+    object-fit: fill;
+    /* Maintain aspect ratio, fitting the video inside the div */
+  }
+}
+
+.youtube-embed {
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  iframe {}
+}
+
+.disable-flex {
+  .pre-tag-full {
+
+
+    padding: 0;
+    margin: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .content-chunk {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.portfolio-wrapper {
+  width: 100%;
+  display: flex; // enables horizontal layout
+  justify-content: space-between; // optional: adds space between grid and right
+
+  .grid {
+    width: 65%;
+
+    .cell {
+      height: 300px; /* Set the height of the div */
+     
+      overflow: hidden; /* Prevents overflow */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {max-width: 100%;
+        object-fit: contain;
+      
+      }
+    }
+  }
+
+  .right {
+    video {
+      max-height: 400px;
+    }
+
+    width: 30%;
+    left:68%;
+    display: inline-block;
+    // position: fixed;
+  }
+}

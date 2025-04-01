@@ -1,216 +1,212 @@
 
 //require('fs');
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import PortfolioGrid from './PortfolioGrid.js';
+import { contentChunk, contentChunkWithVideo, simpleListItem, simpleListItemP, renderArray, contentChunkWithImages, TechIcons } from "./../Util.js";
 
-import { contentChunk, contentChunkWithVideo, simpleListItem, simpleListItemP, renderArray, contentChunkWithImages } from "./../Util.js";
+const YouTubeEmbed = (props) => {
+    return (
+        <div className='youtube-embed'>
+
+            <iframe
+                width="560"
+                height="315"
+                src={"https://www.youtube.com/embed/" + props.id}  // Replace with your YouTube video ID
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title="YouTube video"
+            ></iframe>
+        </div>
+    );
+};
+
 function Portfolio(props) {
+    const [isAbsolute, setIsAbsolute] = useState(false);
+    const scrollThreshold = 1400; // Adjust this as needed
+
+    const videoRef = useRef(null);
+    const [selectedVideo, setSelectedVideo] = useState(require("./../Assets/ehgvids/physicsbasedcombat.mp4"));
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > scrollThreshold) {
+                setIsAbsolute(true);
+            } else {
+                setIsAbsolute(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
 
         <div>
             {
-                contentChunkWithVideo("Epic Hero Game (2021-present) (unity)", <div >
-                    <p>
-                        <div className="ehg-highlight-font"></div>
+                contentChunk("Portfolio",
+
+                    <div className='portfolio-wrapper'>
+
+                        <PortfolioGrid onSelectVideo={(video) => {
+
+                            setSelectedVideo(video);
+                            if (videoRef.current) {
+                                videoRef.current.load(); // Optional: reload video source
+                                videoRef.current.play();
+                            }
+                        }}></PortfolioGrid>
+                        <div className='right' style={{
+                            position: isAbsolute ? "absolute" : "fixed",
+                            top: isAbsolute ? `${scrollThreshold + 70}px` : "",
+                        }}>
+
+                            <video ref={videoRef} autoplay={true} controls>
+                                {
+                                    selectedVideo && selectedVideo.video && <source src={selectedVideo.video} type="video/mp4" />
+
+                                }
+
+                            </video>
+                            {
+                                selectedVideo && <TechIcons techList={selectedVideo.tech} />
+                            }
+                            {selectedVideo && <div
+                                style={{
+                                    position: 'absolute',
+                                    top: '10px', // adjust as needed
+                                    left: '10px', // adjust as needed
+                                    color: 'white',
+                                    backgroundColor: 'rgba(0, 0, 0, 0.5)', // optional for better readability
+                                    padding: '5px 10px',
+                                    borderRadius: '5px',
+                                }}
+                            >
+                                {selectedVideo.title}
+                            </div>
+                            }
+                            {
+                                selectedVideo && (
+                                    <div style={{ marginTop: '1rem', padding: '0.75rem', backgroundColor: 'rgba(0, 0, 0, 0.5)', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
+                                        {
+                                            selectedVideo.link && <a href={selectedVideo.link}>{selectedVideo.link}</a>
+                                        }
+
+                                        <h4 style={{ marginBottom: '0.5rem', }}>Description</h4>
+                                        <p style={{ color: '#555', lineHeight: '1.6' }}>
+                                            {selectedVideo.description}
+                                        </p>
+                                    </div>
+                                )
+                            }
+                        </div>
+                    </div>
+                )
+            }
+
+            {
+                contentChunk("Highlights",
+
+                    <div className='portfolio-wrapper disable-flex'>
                         {
-                            //    is a roguelite/soulslike about a reincarnated superhero who was looking to relax in the afterlife but, due to a certain set of events, ends up helping to save the world from an alien invasion that threatens to destroy it, quite literally.
+                            contentChunk("Epic Hero Game ", <div >
+                                <div className='content-wrapper'>
+
+                                    <pre className='pre-tag-full'>
+                                        <div className="block-wrapper">
+                                            <YouTubeEmbed id={"3YEILWFpsxg"}></YouTubeEmbed>
+                                            <div className="pre-block">
+
+                                                <p className='list-paragraph'>
+                                                    Epic Hero Game is a roguelite soulslike
+                                                    <p className='list-paragraph2'>
+                                                        <ul>
+                                                            <li>Main Project</li>
+
+                                                            <li>Very flexible codebase with tons of features</li>
+                                                            <li>Physics-based character controller</li>
+                                                            <li>Custom Ability system</li>
+                                                            <li>Custom projectile system</li>
+                                                            <li>Custom interaction system</li>
+
+                                                            <li>Custom physics-based animation</li>
+                                                            <li>Custom combat system</li>
+
+                                                            <li>Combat looks different based on player progression</li>
+                                                            <li>Destructable environment</li>
+                                                            <li>Was featured on Hectic Sherlock Gaming youtube channel,<br></br> with 7.1 million views, as of writing this.</li>
+                                                            <li><a href='https://store.steampowered.com/app/2081720/Epic_Hero_Game/'>https://store.steampowered.com/app/2081720/Epic_Hero_Game/</a></li>
+                                                        </ul>
+                                                    </p>
+
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </pre>
+
+
+                                </div>
+                            </div>)
+
                         }
-                        {/*    <p className='list-paragraph'>Is a roguelite / soulslike built around the idea of ridiculous power scaling anime genre (Dragonball / One Punch Man), where you can always keep getting stronger, you can stack things together, and your appearance changes as you level up, at its core its a parody (why would changing hairstyle make you stronger?, well this game actively tries to lean into that)
-      You play as a custom superhero with many absurd build possibilities, and you are saving the world from total destruction... literally!
-    </p>
-*/}
-                        <p className='list-paragraph'>
-                            Is a physics based roguelite / soulslike where you play as a superhero and its your job to save the world from an alien invasion where the world is getting totally destroyed!<br></br><br></br>
-                            <p className='list-paragraph2'>
-                                As you fight through enemies, player gets stronger during the fight (think of tournament of power in Dragon Ball Super)<br></br><br></br>
-                                The game uses physics as a backbone for ridiculous anime powerscaling, where you can physically see a difference in the combat, the more stronger you get.
-                            </p>
-                        </p>
-                        <p className='list-paragraph2'>
-                            <a href="http://epicherogame.com" className="download-btn">Link to pitch deck</a>
-                            <br></br>
-                            <br></br>
-                            <a href="https://www.youtube.com/watch?v=ias3KT3sFRE" className="download-btn">Gameplay trailer</a>
-                            <br></br>
-                            <br></br>
-
-                            <a href="https://www.dropbox.com/scl/fi/mpq9mcaykpt2xetg2ac2h/Epic-Hero-Game-0.2.zip?rlkey=gqnj155a6o6yf5cbt2dfrzcq1&raw=1" className="download-btn">Demo Download</a>
-
-                        </p>
-                        <p className='list-paragraph2'>
-                            This is ongoing dream project for me, and it has gone through multiple iterations, here are the major products i created for this project:
-                            <ul>
-                                <li>Custom character controller</li>
-
-                                <li>Custom animation system that blends IK and Physics animation</li>
-
-                                <li>Custom Upgrade system</li>
-
-                                <li>Custom ai system</li>
-
-
-                                <li>3D Modeling</li>
-
-
-                            </ul>
-                        </p>
-                        Takeaways
-                        <ul className='list-paragraph2'>
-                            <li>Just because i can program something, it doesnt mean it will fit the game.</li>
-
-                            <li>Better understanding of game juice</li>
-                            <li>Better understanding of gamedesign</li>
-                            <li>Better understanding of how to make fun combat</li>
-                            <li>Better understanding of ragdoll physics</li>
-                            <li>Better understanding of how 3rd person controllers work</li>
-
-                            <li>An action game should only ever have 1 thing that is moving, either the camera, or the characters, not both.</li>
-
-                            <li>Better understanding how to program gameplay AI</li>
-
-                            <li>Better understanding of shaders</li>
-                            <li>Better understanding of how to pace an action game</li>
-                            <li><a href='https://lizengland.com/blog/2014/04/the-door-problem/'>Door problem is a very real thing </a></li>
-                            <li>Anything that can go wrong, will go wrong</li>
-                            <li>Learned how to make video devlogs</li>
-                            <li>Less is more</li>
-
-                        </ul>
-                        <ul className='list-paragraph2'>
-                            I have made few    <a href='https://www.youtube.com/@scuffedgamedev'>video devlogs</a> about the process of building this game
-                            <p className='list-paragraph2'>(i have to catch up with devlogs)
-                            </p>
-                        </ul>
-                    </p>
-
-
-                </div>, require("./../Assets/ehgvids/physicsbasedcombat.mp4"))
-
-            }
-            {
-                contentChunkWithVideo("Golemz (2024)", <div >
-                    <p>
-                        <div className="ehg-highlight-font"></div>
-                     
-                        <p className='list-paragraph'>
-                            Golemz is a worms clone in 3d
-                            <p className='list-paragraph2'>
-                                <ul>
-                                    <li>Photon multiplayer</li>
-                                    <li>IK that blends first person weapon animations into third person character</li>
-                                    <li>vast selection of weapons</li>
-                                    <li>Built in 2 weeks for a gamejam</li>
-                                    <li>Teamlead of 4</li>
-                                    <li>(clip is the gamejam host playing the game with us)</li>
-
-                                    <li>Won #1 overrall jern's choice award</li>
-                                    <a href='https://samuli-salonen.itch.io/golemz'><li>Build</li></a>
-                                </ul>
-                            </p>
-
-                        </p>
-                        <img className='award' src={require("./../Assets/jernjam6.png")}></img>
-
-                    </p>
-
-
-                </div>, require("./../Assets/ehgvids/golemz.mp4"))
-
-            }
-  {
-                contentChunkWithVideo("Stream overlay ragdoll fighter (2023)", <div >
-                    <p>
-                        <div className="ehg-highlight-font"></div>
-                     
-                        <p className='list-paragraph'>
-                            Physics based ragdoll fighting game that renders on top of your screen
-                            <p className='list-paragraph2'>
-                                <ul>
-                                    <li>Unity twitch chat integration</li>
-                                
-                                    <li>Ragdoll physics</li>
-                                
-                                </ul>
-                            </p>
-
-                        </p>
-                       
-                    </p>
-
-
-                </div>, require("./../Assets/ehgvids/onscreen.mp4"))
-
-            }
-
-            {
-                contentChunkWithVideo("Drawzle (2020) (unity)", <div>
-                    <p>
-                        <div className="ehg-highlight-font"></div>
                         {
-                            //    is a roguelite/soulslike about a reincarnated superhero who was looking to relax in the afterlife but, due to a certain set of events, ends up helping to save the world from an alien invasion that threatens to destroy it, quite literally.
+                            contentChunkWithVideo("Chat Ragdoll Racing", <div >
+
+                                <p className='list-paragraph'>
+                                    Chat Ragdoll Racing is a twitch integration game
+                                    <p className='list-paragraph2'>
+                                        <ul>
+                                            <li>similiar to marbles, but with ragdolls</li>
+                                            <li>procedural ragdoll animation</li>
+                                            <li>twitch api integration in unity</li>
+                                            
+                                            <li>flexible obstacle system</li>
+                                            
+                                        </ul>
+                                    </p>
+
+                                </p>
+
+
+
+
+
+                            </div>, require("./../Assets/ehgvids/crr-gameplayer.mp4"))
+
                         }
-                        {/*    <p className='list-paragraph'>Is a roguelite / soulslike built around the idea of ridiculous power scaling anime genre (Dragonball / One Punch Man), where you can always keep getting stronger, you can stack things together, and your appearance changes as you level up, at its core its a parody (why would changing hairstyle make you stronger?, well this game actively tries to lean into that)
-      You play as a custom superhero with many absurd build possibilities, and you are saving the world from total destruction... literally!
-    </p>
-*/}
-                        <p className='list-paragraph'>
-                            Drawzle is a physics based puzzle game where the levels are solved by drawing on the screen.
-                            <p className='list-paragraph2'>
-                                The objective is to land the ball to the goal.
-
-                                The ball can be guided towards the goal by drawing lines to the level or erasing obstacles on the way.
-
-                                <br></br>Points are scored by guiding the ball towards stars that are placed all over the level.  </p>
-                        </p>
-                        Takeaways
-                        <ul className='list-paragraph2'>
-                            <li>Take unique idea and actually complete a project</li>
-
-                            <li>Better understanding of how game physics works</li>
-
-                            <li>Better understanding of how 3d Geometry works</li>
-                        </ul>
-
-                    </p>
+                        {
+                            contentChunkWithVideo("Golemz (2024)", <div >
 
 
-                </div>, require("./../Assets/ehgvids/Drawzlegameplay.mp4"))
 
+                                <p className='list-paragraph'>
+                                    Golemz is a worms clone in 3d
+                                    <p className='list-paragraph2'>
+                                        <ul>
+                                            <li>Photon multiplayer</li>
+                                            <li>IK that blends first person weapon animations into third person character</li>
+                                            <li>vast selection of weapons</li>
+                                            <li>Built in 2 weeks for a gamejam (jernjam 3)</li>
+                                            <li>Teamlead of 4</li>
+                                            <li>(clip is the gamejam host playing the game with us)</li>
+
+                                            <li>Won #1 overrall jern's choice award, against people with 30 years experience in the industry</li>
+                                            <a href='https://samuli-salonen.itch.io/golemz'><li>Build</li></a>
+                                        </ul>
+                                    </p>
+
+                                </p>
+                                <img className='award' src={require("./../Assets/jernjam6.png")}></img>
+
+
+
+
+                            </div>, require("./../Assets/ehgvids/golemz.mp4"))
+
+                        }
+                    </div>)
             }
-            {
-                contentChunkWithVideo("Bottle flip AR (2019) (unity)", <div>
-
-                    <div className="ehg-highlight-font"></div>
-                    {
-                        //    is a roguelite/soulslike about a reincarnated superhero who was looking to relax in the afterlife but, due to a certain set of events, ends up helping to save the world from an alien invasion that threatens to destroy it, quite literally.
-                    }
-                    {/*    <p className='list-paragraph'>Is a roguelite / soulslike built around the idea of ridiculous power scaling anime genre (Dragonball / One Punch Man), where you can always keep getting stronger, you can stack things together, and your appearance changes as you level up, at its core its a parody (why would changing hairstyle make you stronger?, well this game actively tries to lean into that)
-      You play as a custom superhero with many absurd build possibilities, and you are saving the world from total destruction... literally!
-    </p>
-*/}
-                    <p className='list-paragraph'>
-                        Bottle Flip AR is a simple mobile game that is built with ARCore
-                        <p className='list-paragraph2'>
-                            It scans the camera feed,
-                            <br></br> generates 3d geometry where it detects a surface.
-                            <br></br> And you need to land a bottle on the generated surface.
-                        </p>
-                        Takeaways
-                        <ul className='list-paragraph2'>
-                            <li>Take unique idea and actually complete a project</li>
-
-                            <li>really difficult to built an audience with AR games, because it requires camera permission</li>
-
-                        </ul>
-                        <p className='list-paragraph2'>
-                            This game is no longer available for download, because play store updated their requirements, and i did not have time to support it.
-                        </p>
-                    </p>
-
-
-                </div>, require("./../Assets/ehgvids/bottleflip.mp4"))
-
-            }
-
 
 
 

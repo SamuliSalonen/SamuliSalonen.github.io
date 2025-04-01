@@ -33,6 +33,40 @@ export const contentChunkWithVideo = (title, input1, vid) => {
         </div>
     )
 }
+
+export const getTechIcon = (tech) => {
+    const techIcons = {
+      "C#": require("./Assets/tech/csharp.svg").default,
+      "Unity3D": require("./Assets/tech/unity.svg").default,
+      "JavaScript": require("./Assets/tech/js.svg").default,
+      "React": require("./Assets/tech/react.svg").default,
+      "Angular": require("./Assets/tech/angular.svg").default,
+      "Redux": require("./Assets/tech/redux.svg").default,
+      "CSS3": require("./Assets/tech/css3.svg").default,
+      "Unreal Engine": require("./Assets/tech/unreal.svg").default,
+      "Godot": require("./Assets/tech/godot.svg").default,
+      "Blender": require("./Assets/tech/blender.svg").default,
+      "SQL": require("./Assets/tech/sql.svg").default,
+    };
+  
+    return techIcons[tech] || null;
+  };
+  
+  export const TechIcons = ({ techList }) => {
+      if(!techList)
+      return;
+    return (
+      <div className="tech-icons">
+        {techList.map((tech, index) => {
+          const iconSrc = getTechIcon(tech);
+          return iconSrc ? (
+            <img key={index} className="tech-icon" src={iconSrc} alt={tech} />
+          ) : null;
+        })}
+      </div>
+    );
+  };
+
 export const simpleListItem = (title, description) => {
     return <li><p className='list-title'>{title}</p> <p className='list-paragraph'>{description}</p></li>
 
