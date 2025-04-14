@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import PortfolioGrid from './PortfolioGrid.js';
 import { contentChunk, contentChunkWithVideo, simpleListItem, simpleListItemP, renderArray, contentChunkWithImages, TechIcons } from "./../Util.js";
-
+import videos from "./videos";
 const YouTubeEmbed = (props) => {
     return (
         <div className='youtube-embed'>
@@ -26,7 +26,7 @@ function Portfolio(props) {
     const scrollThreshold = 1400; // Adjust this as needed
 
     const videoRef = useRef(null);
-    const [selectedVideo, setSelectedVideo] = useState(require("./../Assets/ehgvids/physicsbasedcombat.mp4"));
+    const [selectedVideo, setSelectedVideo] = useState(videos[0]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -49,7 +49,7 @@ function Portfolio(props) {
 
                     <div className='portfolio-wrapper'>
 
-                        <PortfolioGrid onSelectVideo={(video) => {
+                        <PortfolioGrid videos={videos} onSelectVideo={(video) => {
 
                             setSelectedVideo(video);
                             if (videoRef.current) {
@@ -120,6 +120,7 @@ function Portfolio(props) {
 
                                                 <p className='list-paragraph'>
                                                     Epic Hero Game is a roguelite soulslike
+                                                    <br></br><a href={"https://store.steampowered.com/app/2081720/Epic_Hero_Game/"}>Steam</a>
                                                     <p className='list-paragraph2'>
                                                         <ul>
                                                             <li>Main Project</li>
@@ -155,14 +156,15 @@ function Portfolio(props) {
 
                                 <p className='list-paragraph'>
                                     Chat Ragdoll Racing is a twitch integration game
+                                    <br></br><a href={"https://store.steampowered.com/app/3511350/Chat_Ragdoll_Racing/"}>Steam</a>
                                     <p className='list-paragraph2'>
                                         <ul>
                                             <li>similiar to marbles, but with ragdolls</li>
                                             <li>procedural ragdoll animation</li>
                                             <li>twitch api integration in unity</li>
-                                            
+
                                             <li>flexible obstacle system</li>
-                                            
+
                                         </ul>
                                     </p>
 
@@ -176,12 +178,38 @@ function Portfolio(props) {
 
                         }
                         {
+                            contentChunkWithVideo("Bomb around", <div >
+
+                                <p className='list-paragraph'>
+                                    Physics based rage game inspired by jump king and other foddian games.
+                                    <br></br><a href={"https://store.steampowered.com/app/3539690/Bomb_Around/"}>Steam</a>
+                                    <p className='list-paragraph2'>
+                                        <ul>
+                                            <li>Integrated effects and other gamefeel improvements</li>
+
+
+                                        </ul>
+                                    </p>
+
+                                </p>
+
+
+
+
+
+                            </div>, require("./../Assets/ehgvids/bombaround.mp4"))
+
+                        }
+                        {
                             contentChunkWithVideo("Golemz (2024)", <div >
 
 
 
                                 <p className='list-paragraph'>
                                     Golemz is a worms clone in 3d
+                     
+                                    <br></br><img className='award' src={require("./../Assets/jernjam6.png")}></img>
+                                    <br></br>        <a href='https://samuli-salonen.itch.io/golemz'>Build</a>
                                     <p className='list-paragraph2'>
                                         <ul>
                                             <li>Photon multiplayer</li>
@@ -191,13 +219,11 @@ function Portfolio(props) {
                                             <li>Teamlead of 4</li>
                                             <li>(clip is the gamejam host playing the game with us)</li>
 
-                                            <li>Won #1 overrall jern's choice award, against people with 30 years experience in the industry</li>
-                                            <a href='https://samuli-salonen.itch.io/golemz'><li>Build</li></a>
                                         </ul>
                                     </p>
 
                                 </p>
-                                <img className='award' src={require("./../Assets/jernjam6.png")}></img>
+
 
 
 
