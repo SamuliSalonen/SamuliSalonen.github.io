@@ -1,0 +1,238 @@
+/* =============================================================
+   PLAYTEST ROSTER
+   Social proof for the closed playtest.
+
+   The tally wall is the element. One mark per seat, filled marks
+   in brand, the next open seat blinking — so the count and the
+   call to action are the same object rather than two things
+   stacked on top of each other.
+
+   Everything else in here stays quiet.
+   ============================================================= */
+
+@use "breakpoints" as *;
+
+:root {
+  /* Data face. System stack, so it costs no network request.
+     Promote to _tokens.scss if anything else starts using it. */
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo,
+               Consolas, "Liberation Mono", monospace;
+}
+
+.roster {
+  padding-block: var(--space-7);
+  border-top: 1px solid var(--color-bg-tag-border);
+  border-bottom: 1px solid var(--color-bg-tag-border);
+}
+
+/* -------------------------------------------------------------
+   Eyebrow
+   ------------------------------------------------------------- */
+
+.roster__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-4);
+}
+
+.roster__live {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  flex-shrink: 0;
+  animation: roster-blink 2s var(--ease) infinite;
+}
+
+/* -------------------------------------------------------------
+   Headline
+   ------------------------------------------------------------- */
+
+.roster__headline {
+  font-size: var(--text-2xl);
+  max-width: 20ch;
+  margin: 0;
+  text-wrap: balance;
+}
+
+/* Second clause is the scarcity. Muted so it reads as a
+   consequence of the first, not a second shout. */
+.roster__headline em {
+  font-style: normal;
+  color: var(--color-text-muted);
+}
+
+/* -------------------------------------------------------------
+   Tally wall — the signature
+   ------------------------------------------------------------- */
+
+.roster__wall {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: var(--space-6) 0 var(--space-3);
+}
+
+.roster__tick {
+  flex: none;
+  width: 3px;
+  height: 22px;
+  border-radius: 1px;
+  background: var(--color-bg-tag-border);
+  transform-origin: bottom;
+}
+
+/* Taken seats. Pulled back off pure brand so the wall reads as a
+   mass and the single open seat stays the brightest mark here. */
+.roster__tick--filled {
+  background: color-mix(in srgb, var(--color-primary) 82%, var(--color-bg));
+}
+
+.roster__tick--next {
+  background: var(--color-primary);
+  box-shadow: 0 0 10px var(--color-primary-glow);
+  animation: roster-blink 1.4s var(--ease) infinite;
+}
+
+/* Reveal. Each mark carries its own index as --i, so the wall draws
+   left to right instead of snapping in. `backwards` holds the first
+   keyframe through the delay — no JS, and nothing to clean up. */
+.roster__tick--filled {
+  animation: roster-fill 300ms var(--ease) backwards;
+  animation-delay: calc(var(--i) * 3ms);
+}
+
+@keyframes roster-fill {
+  from { opacity: 0; transform: scaleY(0.12); }
+  to   { opacity: 1; transform: scaleY(1); }
+}
+
+@keyframes roster-blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.3; }
+}
+
+.roster__caption {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-soft);
+}
+
+.roster__caption b {
+  color: var(--color-text);
+  font-weight: inherit;
+}
+
+/* -------------------------------------------------------------
+   Figures
+   ------------------------------------------------------------- */
+
+.roster__figures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-5);
+  margin: var(--space-7) 0 0;
+  padding: 0;
+}
+
+.roster__figure {
+  padding-left: var(--space-4);
+  border-left: 1px solid var(--color-bg-tag-border);
+}
+
+.roster__figure dt {
+  margin-bottom: var(--space-2);
+}
+
+.roster__value {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: clamp(1.625rem, 1.2rem + 1.4vw, 2.25rem);
+  font-weight: 500;
+  line-height: var(--leading-tight);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.roster__value small {
+  font-size: 0.55em;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  margin-left: 0.15em;
+}
+
+/* -------------------------------------------------------------
+   Action
+   ------------------------------------------------------------- */
+
+.roster__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-7);
+}
+
+.roster__note {
+  margin: 0;
+  max-width: 34ch;
+  font-size: var(--text-xs);
+  line-height: var(--leading-body);
+  color: var(--color-text-soft);
+}
+
+/* -------------------------------------------------------------
+   Mobile
+   ------------------------------------------------------------- */
+
+@include below($bp-md) {
+  .roster {
+    padding-block: var(--space-6);
+  }
+
+  .roster__headline {
+    max-width: none;
+  }
+
+  .roster__figures,
+  .roster__actions {
+    margin-top: var(--space-6);
+  }
+}
+
+@include below($bp-sm) {
+  /* Shorter marks so the wall stays a band and not a wallpaper
+     once it wraps to six or seven rows. */
+  .roster__tick {
+    height: 16px;
+  }
+
+  .roster__figures {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+
+  .roster__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .roster__note {
+    max-width: none;
+    text-align: center;
+  }
+}
+
+/* base.scss already collapses durations, but the stagger lives in the
+   delay — which that rule does not touch. Drop the animations outright. */
+@media (prefers-reduced-motion: reduce) {
+  .roster__tick--filled,
+  .roster__tick--next,
+  .roster__live {
+    animation: none;
+  }
+}

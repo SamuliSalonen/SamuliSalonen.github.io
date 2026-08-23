@@ -44,9 +44,7 @@ export const Support = ({ link }) => (
     href={link}
     action="Support on Ko-fi"
   >
-    <p>
-      This is a solo project. 
-    </p>
+  
   </CalloutPanel>
 );
 

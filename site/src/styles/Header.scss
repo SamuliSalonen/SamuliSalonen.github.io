@@ -196,3 +196,143 @@ ul.nav-links li a:hover::after {
     display: none;
   }
 }
+/* =============================================================
+   MOBILE DROPDOWN
+   Appended. Nothing above this line is modified.
+
+   Needs one addition to the markup: a .nav-toggle button inside
+   .site-nav, and an `is-open` class on ul.nav-links. Without the
+   button there is nothing to collapse into, which is why the
+   links currently stay visible as a scrolling strip.
+   ============================================================= */
+
+.nav-toggle {
+  display: none;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* 44px is the smallest reliably tappable target. */
+  width: 44px;
+  height: 44px;
+
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+
+  flex-shrink: 0;
+}
+
+.nav-toggle__bar {
+  display: block;
+
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+
+  background: currentColor;
+
+  transition: transform var(--dur) var(--ease),
+              opacity var(--dur) var(--ease);
+}
+
+.nav-toggle__bar + .nav-toggle__bar {
+  margin-top: 5px;
+}
+
+/* aria-expanded drives the bars-to-cross morph, so the icon cannot
+   disagree with what a screen reader is told. A 2px bar plus a 5px
+   gap puts 7px between bar centres. */
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  ul.nav-links {
+    /* .site-nav is positioned in both its static and pinned states,
+       so the panel hangs off the bar correctly either way. */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+
+    padding: var(--space-2) var(--gutter)
+             max(var(--space-4), env(safe-area-inset-bottom));
+
+    /* Opaque enough to read over page content. */
+    background: color-mix(in srgb, var(--color-bg) 97%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid var(--color-bg-tag-border);
+    box-shadow: 0 12px 24px var(--color-shadow);
+
+    /* Replaces the horizontal scroll strip above: a long list now
+       scrolls down inside the panel instead of sideways off-screen. */
+    max-height: calc(100dvh - 56px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+
+    transition: opacity var(--dur) var(--ease),
+                transform var(--dur) var(--ease),
+                visibility var(--dur) var(--ease);
+  }
+
+  ul.nav-links.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  ul.nav-links li {
+    width: 100%;
+  }
+
+  ul.nav-links li a {
+    display: flex;
+    align-items: center;
+
+    min-height: 48px;
+
+    /* Overrides the --text-xs and nowrap from the strip layout. */
+    font-size: var(--text-base);
+    white-space: normal;
+
+    border-bottom: 1px solid var(--color-bg-tag-border);
+  }
+
+  ul.nav-links li:last-child a {
+    border-bottom: none;
+  }
+
+  /* The sliding underline is a pointer affordance and reads as a
+     stray rule in a stacked list. The row separators do that job. */
+  ul.nav-links li a::after {
+    display: none;
+  }
+}

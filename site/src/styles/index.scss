@@ -20,20 +20,23 @@
 @use "footer";
 @use "theme";
 @use "tokens";
-
+@use "playtest";
+@use "gameplay";
 /* 2. Element defaults. */
 @use "base";
-
+@use "devs";
+@use "cvintro";
+@use "news";
 /* 3. Layout primitives: container, section, grid, buttons. */
 @use "layout";
-@use "header";
+@use "Header";
 /* 4. Components. */
 @use "games";
 @use "panels";
 @use "roadmap";
 @use "gallery";
 @use "patchnotes";
-@use "cvintro";
+
 /* 5. Legacy. Keep last so it can still override while you migrate,
       then delete rules from it as each page is converted. */
 @use "App";

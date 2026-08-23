@@ -1,3 +1,7 @@
+@use "breakpoints" as *;
+html {
+    scroll-behavior: smooth;
+}
 @font-face {
   font-family: "CustomFont2";
   src: url("./../Assets/SigmarOne-Regular.ttf") format('truetype');
@@ -19,25 +23,7 @@
   height: 40vmin;
   pointer-events: none;
 }
-.tech-icons {
- 
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
-  gap: var(--space-2);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  
-}
 
-.tech-icon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  margin: 0;
-  text-align: center;
-}
 .flexbox-root {
   display: flex;
   box-sizing: border-box;
@@ -61,13 +47,18 @@
   transition: opacity 0.3s ease;
 }
 
-.join-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 12px 30px var(--color-primary-shadow-loud);
-}
+/* Hover effects only where there is a real pointer. On a touchscreen
+   :hover latches after a tap, so the button stays scaled up and the
+   glow stays lit until you tap somewhere else. */
+@media (hover: hover) and (pointer: fine) {
+  .join-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px var(--color-primary-shadow-loud);
+  }
 
-.join-btn:hover::before {
-  opacity: 1;
+  .join-btn:hover::before {
+    opacity: 1;
+  }
 }
 
 .join-btn:active {
@@ -78,9 +69,14 @@
 .join-btn {
   background: linear-gradient(90deg, var(--color-primary), var(--color-text-muted));
   color: var(--color-text);
-  font-size: 2rem;
+  /* Was a flat 2rem with 60px side padding, which needs roughly 430px of
+     width for "JOIN PLAYTEST". A phone gives you 360. clamp() keeps the
+     desktop size at the top end and gives it somewhere to shrink to. */
+  font-size: clamp(1.125rem, 4.2vw, 2rem);
   font-weight: bold;
-  padding: 20px 60px;
+  padding: clamp(14px, 3.2vw, 20px) clamp(26px, 7vw, 60px);
+  letter-spacing: clamp(1px, 0.4vw, 2px);
+  max-width: 100%;
   border: none;
   border-radius: 15px;
   cursor: pointer;
@@ -89,7 +85,6 @@
   position: relative;
   overflow: hidden;
   text-transform: uppercase;
-  letter-spacing: 2px;
 }
 
 .landing {
@@ -109,7 +104,7 @@
 }
 
 .content-block {
-  padding-top: 1%;
+//  padding-top: 1%;
   padding-bottom: 1%;
   background: var(--color-bg-elevated);
   box-shadow: 0 8px 20px var(--color-shadow);
@@ -156,7 +151,13 @@
 
 .game-logo {
   position: relative;
-  width: 1000px;
+  display: block;
+  /* Was a hard width: 1000px. On a 390px viewport that either overflows
+     or gets silently chopped off by .App's overflow-x: hidden, which is
+     why it never looked centred. min() caps it without pinning it. */
+  width: min(1000px, 100%);
+  height: auto;
+  margin-inline: auto;
   border-bottom: 1px solid var(--color-text);
 }
 
@@ -173,6 +174,13 @@
   width: 100%;
 }
 
+.tech-icons {
+  justify-content: center;
+}
+
+.tech-icon {
+  margin: 2%;
+}
 
 a {
   color: var(--color-text);
@@ -552,4 +560,77 @@ video {
 
 .reset-left {
   left: 0%;
+}
+
+/* =============================================================
+   MOBILE — landing wordmark + playtest CTA
+   Appended last so it beats the legacy rules above without !important.
+   ============================================================= */
+
+@include below($bp-md) {
+  /* .landing is a rigid 50/50 split locked to 600px tall. Below the
+     medium breakpoint that turns into two cramped columns, so stack it
+     and let the height come from the content. */
+  .landing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    gap: var(--space-5);
+    padding: var(--space-6) var(--gutter);
+    text-align: center;
+
+    div {
+      width: 100%;
+      height: auto;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .game-logo {
+    width: 100%;
+    margin-block: var(--space-4) var(--space-5);
+    padding-bottom: var(--space-3);
+  }
+}
+
+@include below($bp-sm) {
+  /* A full-width CTA reads as a deliberate tap target rather than a
+     shrunken desktop button, and it can no longer overflow the screen. */
+  .join-btn {
+    display: block;
+    width: 100%;
+    max-width: 360px;
+    margin-inline: auto;
+    padding-inline: var(--space-4);
+    border-radius: 12px;
+  }
+
+  .game-logo {
+    margin-block: var(--space-3) var(--space-5);
+  }
+}
+.tech-icons {
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  
+}
+
+.tech-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+  text-align: center;
 }

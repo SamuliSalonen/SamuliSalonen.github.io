@@ -1,17 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.ac1b0899.css",
-    "main.js": "/static/js/main.9ba1d6b2.js",
+    "main.css": "/static/css/main.33cc9b13.css",
+    "main.js": "/static/js/main.a5e8ca5c.js",
     "static/js/787.6216e3e5.chunk.js": "/static/js/787.6216e3e5.chunk.js",
     "static/media/Chat_Ragdoll_Racing_LV0JyKtBWY (1).mp4": "/static/media/Chat_Ragdoll_Racing_LV0JyKtBWY (1).71829dac6eee715f0652.mp4",
     "static/media/physics-animation.mp4": "/static/media/physics-animation.9a878a612cdc1e93891d.mp4",
     "static/media/physics_upgrade2.mp4": "/static/media/physics_upgrade2.e57efdc650c66bf8e5eb.mp4",
     "static/media/knightwarriors.mp4": "/static/media/knightwarriors.5a20ab2d0233089bbd8e.mp4",
+    "static/media/combat2.mp4": "/static/media/combat2.4a5475ca5c556720558c.mp4",
     "static/media/argolf.mov": "/static/media/argolf.c39b79c2e76574b9feb6.mov",
     "static/media/convict-run.mp4": "/static/media/convict-run.e17f0a2523ae0bed244f.mp4",
     "static/media/9001 round 2.mp4": "/static/media/9001 round 2.a75ad81847c1f8a3c946.mp4",
+    "static/media/combat3.mp4": "/static/media/combat3.a75ad81847c1f8a3c946.mp4",
     "static/media/blueskyasms.mp4": "/static/media/blueskyasms.f60a71c3d5782a2ba917.mp4",
     "static/media/free4owl.mp4": "/static/media/free4owl.8fa701b49187e28487a6.mp4",
+    "static/media/combat1.mp4": "/static/media/combat1.2e5087a01a1dbaebde40.mp4",
     "static/media/crr-gameplayer.mp4": "/static/media/crr-gameplayer.cc1fae7ddbea3649879f.mp4",
     "static/media/golemz.mp4": "/static/media/golemz.3a3201bdbcf6e1bae630.mp4",
     "static/media/twitchapi.mp4": "/static/media/twitchapi.2c6e95b0e413bad9d8a7.mp4",
@@ -35,6 +38,7 @@
     "static/media/2bpost destruction2.png": "/static/media/2bpost destruction2.c24446650e5c07b1b00d.png",
     "static/media/harold hit.png": "/static/media/harold hit.be3dbb7a7b515dc35fc8.png",
     "static/media/crr1.png": "/static/media/crr1.0b447e7bccd8464e91bf.png",
+    "static/media/planet.png": "/static/media/planet.41d88ceac4d03f89cb83.png",
     "static/media/crr2.png": "/static/media/crr2.1e5b2bb735ec69cfbb42.png",
     "static/media/punched.png": "/static/media/punched.e512c9afd8bfefbf61c7.png",
     "static/media/ehg2.png": "/static/media/ehg2.a944655be61f28aa4188.png",
@@ -48,6 +52,7 @@
     "static/media/argolf.png": "/static/media/argolf.843c08dd58baea4197fc.png",
     "static/media/onscreen.png": "/static/media/onscreen.48cf949eb4294bad7fac.png",
     "static/media/2019-06-13_16-52-48.mp4": "/static/media/2019-06-13_16-52-48.e3645fb4f5429614eaeb.mp4",
+    "static/media/progression.png": "/static/media/progression.e7637b08e54382a137b3.png",
     "static/media/local.png": "/static/media/local.74b2a7203d26beb9fb1d.png",
     "static/media/free4owl.png": "/static/media/free4owl.0dc67e04964fe5ed1560.png",
     "static/media/golf.png": "/static/media/golf.4b589ca5c2c9df6f6b86.png",
@@ -81,12 +86,12 @@
     "static/media/angular.svg": "/static/media/angular.e1339c1624313f9b7b0eecccc03b1a72.svg",
     "index.html": "/index.html",
     "static/media/uiReducer": "/static/media/uiReducer.ece10b7ed0c2a508011b",
-    "main.ac1b0899.css.map": "/static/css/main.ac1b0899.css.map",
-    "main.9ba1d6b2.js.map": "/static/js/main.9ba1d6b2.js.map",
+    "main.33cc9b13.css.map": "/static/css/main.33cc9b13.css.map",
+    "main.a5e8ca5c.js.map": "/static/js/main.a5e8ca5c.js.map",
     "787.6216e3e5.chunk.js.map": "/static/js/787.6216e3e5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ac1b0899.css",
-    "static/js/main.9ba1d6b2.js"
+    "static/css/main.33cc9b13.css",
+    "static/js/main.a5e8ca5c.js"
   ]
 }

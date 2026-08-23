@@ -15,7 +15,7 @@ const formatText = (text) => {
   if (!text) return null;
 
   return text.split(/\r?\n/).map((line, i) => {
-    const match = line.match(/^(-?\s*)(bugfix:|change:|feature:)/i);
+    const match = line.match(/^([-*]?\s*)(bugfix:|change:|feature:)/i);
 
     if (!match) return <div key={i}>{line}</div>;
 
@@ -37,6 +37,7 @@ const PatchNotes = ({ title = 'Patch notes' }) => {
   const [notes, setNotes] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [isPinned, setIsPinned] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     const loadPatchNotes = async () => {
@@ -63,7 +64,8 @@ const PatchNotes = ({ title = 'Patch notes' }) => {
 
     if (!pagination) return;
 
-    const initialTop = pagination.getBoundingClientRect().top + window.scrollY;
+    const initialTop =
+      pagination.getBoundingClientRect().top + window.scrollY;
 
     const handleScroll = () => {
       setIsPinned(window.scrollY > initialTop);
@@ -81,28 +83,43 @@ const PatchNotes = ({ title = 'Patch notes' }) => {
 
   const totalPages = Math.ceil(notes.length / PAGE_SIZE);
   const startIndex = (currentPage - 1) * PAGE_SIZE;
-  const visibleNotes = notes.slice(startIndex, startIndex + PAGE_SIZE);
+  const visibleNotes = notes.slice(
+    startIndex,
+    startIndex + PAGE_SIZE
+  );
 
   const goToPage = (page) => {
-    setCurrentPage(Math.max(1, Math.min(page, totalPages)));
+    const newPage = Math.max(1, Math.min(page, totalPages));
+
+    if (newPage === currentPage) return;
+
+    setIsAnimating(true);
+
+    setTimeout(() => {
+      setCurrentPage(newPage);
+      setIsAnimating(false);
+    }, 150);
   };
+
   const formatDate = (date) => {
     if (!date) return '';
+
     const timestamp = Number(date);
 
-    // Unix timestamp in seconds -> milliseconds
     const milliseconds =
       timestamp < 10000000000
         ? timestamp * 1000
         : timestamp;
+
     return new Date(milliseconds).toLocaleDateString(undefined, {
       year: 'numeric',
       month: 'short',
       day: 'numeric',
     });
   };
+
   return (
-    <section className="section patchnotes-section">
+    <section id="patchnotes" className="section patchnotes-section">
       <div className="container container--narrow">
         <div className="section-head">
           <h2>{title}</h2>
@@ -112,8 +129,9 @@ const PatchNotes = ({ title = 'Patch notes' }) => {
 
       {totalPages > 1 && (
         <nav
-          className={`patchnotes__pagination ${isPinned ? 'patchnotes__pagination--pinned' : ''
-            }`}
+          className={`patchnotes__pagination ${
+            isPinned ? 'patchnotes__pagination--pinned' : ''
+          }`}
           aria-label="Patch notes pages"
         >
           <div className="container container--narrow">
@@ -125,13 +143,18 @@ const PatchNotes = ({ title = 'Patch notes' }) => {
               Previous
             </button>
 
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+            {Array.from(
+              { length: totalPages },
+              (_, i) => i + 1
+            ).map((page) => (
               <button
                 key={page}
                 type="button"
                 onClick={() => goToPage(page)}
                 className={page === currentPage ? 'active' : ''}
-                aria-current={page === currentPage ? 'page' : undefined}
+                aria-current={
+                  page === currentPage ? 'page' : undefined
+                }
               >
                 {page}
               </button>
@@ -149,11 +172,16 @@ const PatchNotes = ({ title = 'Patch notes' }) => {
       )}
 
       <div className="container container--narrow">
-        <div className="patchnotes">
+        <div
+          className={`patchnotes ${
+            isAnimating ? 'patchnotes--animating' : ''
+          }`}
+        >
           {visibleNotes.map((note) => (
             <article key={note.id} className="patchnote">
               <h3 className="patchnote__title">
                 Patch {note.title}
+
                 <span className="patchnote__date">
                   {formatDate(note.date)}
                 </span>

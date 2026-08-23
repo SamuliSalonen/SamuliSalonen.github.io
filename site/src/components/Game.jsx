@@ -1,5 +1,5 @@
 import React from 'react';
-
+import GameplayPanel from './GameplayPanel';
 const Game = ({
   title,
   video,
@@ -11,6 +11,7 @@ const Game = ({
   featured = false,
 }) => (
   <article className={`game-card${featured ? ' game-card--featured' : ''}`}>
+
     {(video || image) && (
       <div className="game-card__media">
         {video ? (
@@ -30,7 +31,8 @@ const Game = ({
 
     <div className="game-card__body">
       <h3 className="game-card__title">{title}</h3>
-
+     
+      
       {tags.length > 0 && (
         <div className="game-card__meta">
           {tags.map((tag) => (
