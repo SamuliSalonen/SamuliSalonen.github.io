@@ -1,0 +1,65 @@
+/* =============================================================
+   TOKENS — type, space, shape, motion
+   Same idea as _theme.scss, for everything that isn't color.
+   Import after _theme.scss.
+   ============================================================= */
+
+:root {
+  /* ---- typefaces -------------------------------------------
+     Load in index.html:
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;900&family=Inter:wght@400;500;600&display=swap">
+     Keep SigmarOne for the wordmark only — see --font-brand.
+     ----------------------------------------------------------- */
+  --font-display: 'Archivo', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+  --font-brand:   'CustomFont2', var(--font-display);
+
+  /* ---- type scale ------------------------------------------
+     Body sizes are fixed. Only display sizes scale with the
+     viewport, and clamp() gives them a floor and a ceiling.
+     ----------------------------------------------------------- */
+  --text-xs:   0.8125rem;   /* 13px — meta, captions        */
+  --text-sm:   0.9375rem;   /* 15px — secondary body        */
+  --text-base: 1.0625rem;   /* 17px — body                  */
+  --text-lg:   1.25rem;     /* 20px — lead paragraph        */
+  --text-xl:   clamp(1.5rem,  1.25rem + 1.1vw, 2rem);
+  --text-2xl:  clamp(2rem,    1.5rem  + 2.2vw, 3.25rem);
+  --text-3xl:  clamp(2.75rem, 1.6rem  + 5vw,   6rem);
+
+  --leading-tight: 0.95;
+  --leading-snug:  1.2;
+  --leading-body:  1.65;
+
+  --tracking-display: -0.035em;  /* big type tightens        */
+  --tracking-heading: -0.02em;
+  --tracking-label:    0.16em;   /* small caps only          */
+
+  /* ---- spacing (4px base) ----------------------------------- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+
+  --section-y: clamp(64px, 9vw, 152px);   /* space between sections */
+  --container: 1200px;                     /* max content width      */
+  --gutter:    clamp(20px, 5vw, 48px);     /* page side padding      */
+
+  /* ---- shape ------------------------------------------------ */
+  --radius-sm: 4px;
+  --radius:    6px;
+  --radius-lg: 10px;
+
+  /* ---- motion ----------------------------------------------- */
+  --dur-fast: 120ms;
+  --dur:      200ms;
+  --ease:     cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Breakpoints live in _breakpoints.scss — that file emits no CSS,
+   so it can be loaded from anywhere without duplicating this block. */

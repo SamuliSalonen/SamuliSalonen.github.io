@@ -1,0 +1,171 @@
+/* =============================================================
+   LAYOUT PRIMITIVES
+   These replace .pre-tag / .pre-tag-full / .content-wrapper and
+   the width:60%; left:15% positioning throughout the site.
+   ============================================================= */
+
+/* Centered content column. Use on every section's inner div. */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.container--narrow {
+  max-width: 760px;   /* prose, patchnotes, roadmap */
+}
+
+/* Vertical rhythm. One class instead of ad-hoc percentage padding. */
+.section {
+  padding-block: var(--section-y);
+}
+
+.section--flush {
+  padding-block: 0;
+}
+
+/* Alternating background so sections read as distinct bands
+   rather than translucent panels floating on wallpaper. */
+.section--raised {
+  background: var(--color-bg-soft);
+}
+
+/* Section header: eyebrow, heading, optional meta on the right. */
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-bg-tag-border);
+}
+
+/* Vertical stack with consistent gaps. */
+.stack > * + * {
+  margin-top: var(--space-4);
+}
+
+.stack--loose > * + * {
+  margin-top: var(--space-6);
+}
+
+/* Auto-fitting card grid. Replaces width:49% plus a media query. */
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-6);
+}
+
+.grid-cards--wide {
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+}
+
+/* Full-bleed media: hero art, trailers. */
+.bleed {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+}
+
+/* Hero. Art sits behind content in its own section rather than
+   as a fixed background for the whole page. */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: min(78vh, 720px);
+  padding-block: var(--space-9) var(--space-8);
+  overflow: hidden;
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  img, video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Gradient scrim only where text sits, so the art stays visible. */
+.hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    var(--color-bg) 0%,
+    color-mix(in srgb, var(--color-bg) 70%, transparent) 45%,
+    transparent 100%
+  );
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__eyebrow {
+  margin-bottom: var(--space-4);
+}
+
+.hero__title {
+  margin-bottom: var(--space-4);
+}
+
+.hero__lede {
+  max-width: 46ch;
+  font-size: var(--text-lg);
+  color: var(--color-text-soft);
+  margin-bottom: var(--space-6);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* Buttons. No text-stroke, no four-way text-shadow, no glow. */
+.btn-primary,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  padding: 13px 26px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease),
+              border-color var(--dur) var(--ease),
+              color var(--dur) var(--ease);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-text);
+  border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+  color: var(--color-text);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text-soft);
+  border: 1px solid var(--color-bg-tag-border);
+}
+
+.btn-ghost:hover {
+  color: var(--color-text);
+  border-color: var(--color-primary);
+}

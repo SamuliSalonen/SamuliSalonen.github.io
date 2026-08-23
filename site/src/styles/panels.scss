@@ -1,0 +1,104 @@
+/* =============================================================
+   PANELS — callout (support, twitch) and generic prose panel
+   Replaces support.scss.
+   ============================================================= */
+
+.callout {
+  max-width: 420px;
+  padding: var(--space-6);
+  background: var(--color-bg-soft);
+  border-radius: var(--radius-lg);
+  border: none;
+  box-shadow: none;
+}
+
+.callout__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-3);
+}
+
+.callout__live {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-danger);
+  flex-shrink: 0;
+  animation: callout-pulse 2s var(--ease) infinite;
+}
+
+@keyframes callout-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.35; }
+}
+
+.callout__title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: var(--tracking-heading);
+  text-transform: none;
+  color: var(--color-text);
+  margin: 0 0 var(--space-3);
+}
+
+.callout__body {
+  color: var(--color-text-soft);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-5);
+
+  p { margin: 0; }
+}
+
+/* -------------------------------------------------------------
+   Generic prose panel
+   ------------------------------------------------------------- */
+
+.panel {
+  padding: var(--space-6) 0;
+}
+
+.panel__title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: var(--tracking-heading);
+  color: var(--color-text);
+  margin: 0 0 var(--space-3);
+}
+
+.panel__body {
+  color: var(--color-text-soft);
+
+  p { margin: 0 0 var(--space-4); }
+  p:last-child { margin-bottom: 0; }
+}
+
+/* -------------------------------------------------------------
+   Home layout: roadmap beside the callouts
+   ------------------------------------------------------------- */
+
+.home-aside {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: var(--space-7);
+  align-items: start;
+}
+
+.callout-row {
+  display: grid;
+  gap: var(--space-5);
+}
+
+/* The width cap belongs to the standalone case, not the grid. */
+.callout-row .callout {
+  max-width: none;
+}
+
+@media (max-width: 900px) {
+  .home-aside {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}

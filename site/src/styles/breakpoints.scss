@@ -1,0 +1,12 @@
+/* =============================================================
+   BREAKPOINTS — Sass only, emits no CSS.
+   Safe to @use from any file:  @use "breakpoints" as *;
+   ============================================================= */
+
+$bp-sm: 640px;
+$bp-md: 900px;
+$bp-lg: 1200px;
+
+@mixin below($bp) {
+  @media (max-width: $bp) { @content; }
+}

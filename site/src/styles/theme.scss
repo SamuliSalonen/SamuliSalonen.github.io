@@ -1,0 +1,99 @@
+/* =============================================================
+   THEME
+   This is the only file you need to edit to change the colors.
+   Import it first, before every other stylesheet.
+   ============================================================= */
+
+:root {
+  /* -----------------------------------------------------------
+     1. SOURCE COLORS  —  edit these
+     Everything in section 2 recalculates from them.
+     ----------------------------------------------------------- */
+
+   --c-brand:   #FF0000;  /* buttons, borders, panel titles */
+  --c-surface: #23272A;  /* darkest background */
+  --c-ink:     #FFFFFF;  /* body text */
+  --c-muted:   hsl(0, 58%, 65%);  /* de-emphasised text */
+  --c-accent:  #FF0000;  /* highlight */
+  --c-shadow:  #000000;  /* shadows and overlays */
+
+  --c-link:    #0000FF;  /* inline text links                        */
+  --c-info:    #0074D9;  /* download button                          */
+  --c-current: #800080;  /* nav item for the current page            */
+
+  /* status */
+  --c-success: #1ABC9C;  /* completed / feature   */
+  --c-warning: #FFDD57;  /* in progress / change  */
+  --c-danger:  #FF5555;  /* pending / bugfix      */
+
+
+  /* -----------------------------------------------------------
+     2. DERIVED TOKENS  —  use these in components
+     You shouldn't need to touch anything below this line.
+     ----------------------------------------------------------- */
+
+  /* surfaces — each step mixes a little ink into the base surface */
+  --color-bg:            var(--c-surface);
+  --color-bg-soft:       color-mix(in srgb, var(--c-surface) 96%, var(--c-ink));
+  --color-bg-elevated:   color-mix(in srgb, var(--c-surface) 92%, var(--c-ink));
+  --color-bg-tag-border: color-mix(in srgb, var(--c-surface) 88%, var(--c-ink));
+  --color-bg-light:      color-mix(in srgb, var(--c-ink) 94%, var(--c-shadow));
+
+  /* brand */
+  --color-primary:              var(--c-brand);
+  --color-primary-hover:        color-mix(in srgb, var(--c-brand) 79%, var(--c-shadow));
+  --color-primary-track:        color-mix(in srgb, var(--c-brand) 20%, transparent);
+  --color-primary-glow:         color-mix(in srgb, var(--c-brand) 50%, transparent);
+  --color-primary-shadow:       color-mix(in srgb, var(--c-brand) 60%, transparent);
+  --color-primary-shadow-loud:  color-mix(in srgb, var(--c-brand) 80%, transparent);
+
+  /* text */
+  --color-text:         var(--c-ink);
+  --color-text-soft:    color-mix(in srgb, var(--c-ink) 67%, transparent);
+  --color-text-muted:   var(--c-muted);
+  --color-text-inverse: var(--c-shadow);
+  --color-outline:      color-mix(in srgb, var(--c-shadow) 25%, transparent);
+
+  /* links & actions */
+  --color-accent:       var(--c-accent);
+  --color-link:         var(--c-link);
+  --color-info:         var(--c-info);
+  --color-info-hover:   color-mix(in srgb, var(--c-info) 78%, var(--c-shadow));
+  --color-nav-current:  var(--c-current);
+
+  /* status */
+  --color-success: var(--c-success);
+  --color-warning: var(--c-warning);
+  --color-danger:  var(--c-danger);
+
+  /* translucent overlays (the rgba(0,0,0,x) values you had inline) */
+  --scrim-subtle: color-mix(in srgb, var(--c-shadow) 10%, transparent);
+  --scrim:        color-mix(in srgb, var(--c-shadow) 50%, transparent);
+  --scrim-strong: color-mix(in srgb, var(--c-shadow) 70%, transparent);
+
+  /* shadows */
+  --color-shadow:       color-mix(in srgb, var(--c-shadow) 50%, transparent);
+  --color-shadow-soft:  color-mix(in srgb, var(--c-shadow) 10%, transparent);
+  --color-shadow-hover: color-mix(in srgb, var(--c-brand) 40%, transparent);
+}
+
+
+/* =============================================================
+   ALTERNATE PALETTES
+   Add data-theme="ember" to <html> to swap the whole site.
+   Only source colors need overriding — the rest follows.
+   Delete this block if you don't want theme switching.
+   ============================================================= */
+
+[data-theme="ember"] {
+  --c-brand:   #E2703A;
+  --c-surface: #1B1A17;
+  --c-muted:   #B5A99C;
+  --c-accent:  #FFB627;
+}
+
+[data-theme="mint"] {
+  --c-brand:   #2ECC8F;
+  --c-surface: #1A2421;
+  --c-muted:   #9BB5AC;
+}

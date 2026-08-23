@@ -1,0 +1,39 @@
+/* =============================================================
+   ENTRY POINT
+   Import this once, in src/index.js:
+
+       import './styles/index.scss';
+
+   Order matters — variables and base rules must land before any
+   component tries to use or override them.
+
+   Also add to public/index.html <head>:
+
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link rel="stylesheet"
+         href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;900&family=Inter:wght@400;500;600&display=swap">
+   ============================================================= */
+
+/* 1. Variables. Emit no rules of their own beyond :root. */
+
+@use "content";
+@use "footer";
+@use "theme";
+@use "tokens";
+
+/* 2. Element defaults. */
+@use "base";
+
+/* 3. Layout primitives: container, section, grid, buttons. */
+@use "layout";
+@use "header";
+/* 4. Components. */
+@use "games";
+@use "panels";
+@use "roadmap";
+@use "gallery";
+@use "patchnotes";
+@use "cvintro";
+/* 5. Legacy. Keep last so it can still override while you migrate,
+      then delete rules from it as each page is converted. */
+@use "App";
